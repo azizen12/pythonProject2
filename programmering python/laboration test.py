@@ -40,6 +40,10 @@ def main():
     for antalRundor in range(1, rundor + 1):    #börjar på runda 1, därav +1 i tak)
         input(f"\n>> Runda {antalRundor} <<\nTryck Enter för att slå tärningen...")
 
+        print('\nSlår kast...\n')
+        time.sleep(0.5)
+
+
         # Spelarens tur
         spelarKast = roll_dice()            #spelar gör ett kast, åkallar funktionen roll_dice
         spelarKasten.append(spelarKast)     #.append gör att varje kast kommer att läggas till i listan spelarKasten
@@ -91,6 +95,36 @@ def main():
     print(f'Högsta kastet var {highest_roll} ')
     print (f'Lägsta kastet var {lowest_roll}')
 
+streak = int(0)
+
+def main2():
+    print ('Välkommen till gissningspelet!')
+    gissningar = 0
+    hemligtNummer = random.randint(1, 100)
+    while True:
+        gissning = int(input('Gissa på ett tal mellan 0-100: '))
+        gissningar += 1
+        if hemligtNummer > gissning:
+            time.sleep(0.2)
+            print('Fel nummer, försök med ett högre tal')
+        elif hemligtNummer < gissning:
+            time.sleep(0.2)
+            print('Fel nummer, försök med ett lägre tal')
+        elif hemligtNummer == gissning and gissningar > 7:
+            time.sleep(0.2)
+            print('Rätt svar men så här många försök borde det inte ta!')
+        else:
+            time.sleep(0.2)
+            global streak
+            streak += 1
+            print(f'Bra jobbat, du klarade spelet på {gissningar} gissningar! ')
+            break
+
+    if streak >= 3:
+        print('Du har en grym strategi för att klara spelet!')
+
+
+
 #user_input = get_menu_option() onödig?
 
 while True:
@@ -103,6 +137,9 @@ while True:
 
     if user_input == '2':
         main()
+
+    if user_input == '3':
+        main2()
 
     elif (user_input == '4'):
         print()
