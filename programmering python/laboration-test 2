@@ -30,8 +30,12 @@ def roll_dice():    #Simulering av 2st tärningskast
                     #funktion för tärningsspelet
 def main():
     print("Välkommen till tärningsspelet!")
-
-    rundor = int(input("Skriv in antalet rundor du vill spela: "))
+    while True:
+        try:
+            rundor = int(input("Skriv in antalet rundor du vill spela: "))
+            break
+        except:
+            print("Felaktigt input, ange antal rundor i heltal!")
 
     spelarPoäng = 0     #Vad varje spelare börjar med
     aiPoäng = 0
