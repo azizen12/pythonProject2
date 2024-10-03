@@ -14,7 +14,8 @@ def get_menu_option():
         print('4 = Exit')
 
         print()
-        user_input = input(' Enter an option: ')
+        user_input = input(' Välj ett alternativ: ')
+        print()
 
         if user_input in menu_options:
          return user_input
@@ -98,7 +99,7 @@ def main():
 streak = int(0)
 
 def main2():
-    print ('Välkommen till gissningspelet!')
+    print ('Välkommen till gissningspelet!\n')
     gissningar = 0
     hemligtNummer = random.randint(1, 100)
     while True:
